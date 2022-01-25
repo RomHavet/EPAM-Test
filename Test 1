@@ -1,0 +1,21 @@
+import random                   #import module random
+x=range(0,1001)                 #set range from 0 to 1000
+d=[]                            #creat empty list for results
+for i in range(100):            #cycle for creating 100 random numbers from 0 to 1000
+    d.append(random.choice(x))  #put results into the list d
+print(d)                        #print results
+
+e=[]                            #creat empty list for results
+for i in range(len(d)):         #cycle for choosing min number from list d
+    y=min(d)                    
+    e.append(y)                 #put each min number into resulting list
+    d.remove(y)                 #remove each time min number from initial list
+print(e)                        #print results
+
+r=[i for i in e if i%2==0]      #creat list with even numbers from list e
+t=[i for i in e if i%2!=0]      #creat list with odd numbers from list e
+rav=sum(r)/len(r)               #average of even numbers
+tav=sum(t)/len(t)               #average of odd numbers
+
+print(rav)                      #print results
+print(tav)                      #print results
