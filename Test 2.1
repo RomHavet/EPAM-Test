@@ -1,23 +1,25 @@
 import random
 
-Q=random.choice(range(2,11))                        #set random number from 2 to 10 
-W=['a','b','c','d','e','f','g','h','i','j']         #set tulpe with letters
-
-keys=[]                                             #create empty list of keys
-values=[]                                           #create empty list of values
-L=[]                                                #create empty list of dicts
+Q=random.choice(range(2,11))                                                                                         #set random number from 2 to 10 
+W=('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')          #set tuple with letters
+QQ=random.choice(range(1,(len(W)+1)))                                                                                #set random number from 1 to 27
 
 
-for i in range(0,Q):                                #cycle for creating list with Q-number od dicts
-    for x in range(0,Q):                            
-        keys.append(W[x])                           #cycle for creating keys for each dict
-        values.append(random.choice(range(100)))           #cycle for creating random values for each dict
-    L.append(dict(zip(keys,values)))
+keys=[]                                                                                                               #create empty list of keys
+values=[]                                                                                                             #create empty list of values
+L=[]                                                                                                                  #create empty list of dicts
+
+
+for i in range(Q):                                                                                                    #cycle for creating list with Q-number od dicts
+    keys.extend(random.choices(W,k=QQ))                                                                               #fill keys with randon QQ-number of letters
+    for x in range(QQ):                                                                                               #cycle for creating random values for each dict                       values.append(random.choice(range(100)))                                                                                                                   
+    L.append(dict(zip(keys,values)))                                                                                  #create dict from (keys,values)
+    keys=[]
+    values=[]
+    
 
 
 
 
-
-
-print(L)
-print(len(L))
+for x in L:
+    print(x)
