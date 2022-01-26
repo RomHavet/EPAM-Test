@@ -11,7 +11,7 @@ L=[]                                                    #create empty list of di
 
 
 for i in range(Q):                               #0-10   #0-2    #cycle for creating list with Q-number od dicts
-    keys.extend(random.choices(W,k=QQ))
+    keys.extend(random.sample(W,k=QQ))
     for x in range(QQ):                          #0-26   #0-5                         
         values.append(random.choice(range(100)))        #cycle for creating random values for each dict
     L.append(dict(zip(keys,values)))
