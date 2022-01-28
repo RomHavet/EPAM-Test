@@ -1,26 +1,46 @@
 import random
 
-Q=random.choice(range(2,11))                            #set random number from 2 to 10 
-W=('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')         #set tuple with letters
-QQ=random.choice(range(1,(len(W)+1)))
+Q = random.choice(range(2, 11))
+W = (
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+    'x',
+    'y', 'z')
+QQ = random.choice(range(1, (len(W) + 1)))
 
+keys = []
+values = []
+L = []
 
-keys=[]                                                 #create empty list of keys
-values=[]                                               #create empty list of values
-L=[]                                                    #create empty list of dicts
-
-
-for i in range(Q):                               #0-10   #0-2    #cycle for creating list with Q-number od dicts
-    keys.extend(random.sample(W,k=QQ))
-    for x in range(QQ):                          #0-26   #0-5                         
-        values.append(random.choice(range(100)))        #cycle for creating random values for each dict
-    L.append(dict(zip(keys,values)))
-    keys=[]
-    values=[]
-    
-
-
-
+for i in range(Q):
+    keys.extend(random.sample(W, k=QQ))
+    for x in range(QQ):
+        values.append(random.choice(range(100)))
+    L.append(dict(zip(keys, values)))
+    keys = []
+    values = []
 
 for x in L:
     print(x)
+
+print('Q =', Q)
+print('QQ =', QQ)
+
+N = {}
+for x in L:
+    z = 1
+    if not N:
+        N.update(x.items())
+        print(N)                                #remove later
+        continue
+    else:
+        for key in x:
+           if N.get(key):
+                if x.get(key) > N.get(key):
+                    N[key] = x[key]
+
+           else:
+               N[key] = x[key]
+    print(N)                                    #remove later
+    z += 1
+
+
