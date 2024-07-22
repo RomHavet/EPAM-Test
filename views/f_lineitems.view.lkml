@@ -127,7 +127,7 @@ measure: average_sale_price_from_items_sold {
 }
   measure: cumulative_total_sales_from_items_sold {
     type: number
-    sql: SUM(${total_sales_from_items_sold}) OVER (ORDER BY ${TABLE}.d_dates ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
+    sql: SUM(${total_sales_from_items_sold}) OVER (ORDER BY ${l_orderdatekey} ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
     value_format_name: usd
   }
 
