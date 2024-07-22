@@ -96,24 +96,24 @@ view: f_lineitems {
   measure: count {
     type: count
   }
-  measure: total_sale_price {
-    type: sum
-    sql: ${l_totalprice} ;;
+  dimension: total_sale_price {
+    type: number
+    sql: ${l_totalprice}*(1+${l_tax}) ;;
     value_format_name: usd
   }
   measure: average_sale_price {
-    type: average
-    sql: ROUND(${l_totalprice}, 2) ;;
+    type: number
+    sql: round(divide(${total_sale_price}, ${l_quantity}), 2 );;
     value_format_name: usd
   }
   measure: cumulative_total_price {
     type: number
-    sql: SUM(${l_totalprice}) OVER (ORDER BY ${TABLE}.d_dates ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
+    sql: SUM(${total_sale_price}) OVER (ORDER BY ${l_orderdatekey} ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
     value_format_name: usd
   }
   measure: total_sales_from_items_sold {
     type: sum
-    sql:  ${l_totalprice} * ${l_quantity};;
+    sql:  ${total_sale_price};;
     value_format_name: usd
   }
   measure: total_quantity_sold {
@@ -127,7 +127,7 @@ measure: average_sale_price_from_items_sold {
 }
   measure: cumulative_total_sales_from_items_sold {
     type: number
-    sql: SUM(${l_totalprice}*${l_quantity}) OVER (ORDER BY ${TABLE}.d_dates ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
+    sql: SUM(${total_sales_from_items_sold}) OVER (ORDER BY ${TABLE}.d_dates ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
     value_format_name: usd
   }
 
