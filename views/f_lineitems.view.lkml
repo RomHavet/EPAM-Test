@@ -125,5 +125,10 @@ measure: average_sale_price_from_items_sold {
   sql: ROUND(${total_sales_from_items_sold}/${total_quantity_sold},2) ;;
   value_format_name: usd
 }
+  measure: cumulative_total_sales_from_items_sold {
+    type: number
+    sql: SUM(${l_totalprice}*${l_quantity}) OVER (ORDER BY ${TABLE}.d_dates ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) ;;
+    value_format_name: usd
+  }
 
 }
