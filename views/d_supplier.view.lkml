@@ -27,6 +27,7 @@ view: d_supplier {
   }
   dimension: s_suppkey {
     type: number
+    primary_key: yes
     sql: ${TABLE}."S_SUPPKEY" ;;
   }
   measure: count {

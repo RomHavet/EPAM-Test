@@ -10,6 +10,7 @@ view: d_dates {
   }
   dimension: datekey {
     type: number
+    primary_key: yes
     sql: ${TABLE}."DATEKEY" ;;
   }
   dimension: day_of_week {
