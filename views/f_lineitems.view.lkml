@@ -138,13 +138,17 @@ measure: total_russia_sales {
   value_format_name: usd
 }
   measure: total_gross_revenue {
+    description: "Total sales whith order status F"
     type: sum
     sql: ${l_totalprice} ;;
-    filters: {
-      field: receipt_dates.date_val_date
-      value: "before today"
+    filters: [l_orderstatus: "F"]
+    value_format_name: usd
     }
-
-  }
+measure: total_cost {
+  description: "Total supply cost"
+  type: sum
+  sql: ${l_supplycost} ;;
+  value_format_name: usd
+}
 
 }
