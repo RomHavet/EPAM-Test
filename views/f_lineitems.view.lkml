@@ -122,6 +122,14 @@ view: f_lineitems {
     sql: ${l_quantity};;
   }
 
+measure: total_sale_price_shipped_by_air {
+  description: "Total sales of items shipped by air"
+  type: sum
+  sql: ${l_totalprice};;
+  filters: [l_shipmode: "AIR"
+  ]
+  value_format_name: usd
+}
 
 
 }
