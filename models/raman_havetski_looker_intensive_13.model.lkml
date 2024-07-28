@@ -24,10 +24,17 @@ explore: f_lineitems {
     relationship: many_to_one
     sql_on: ${d_customer.c_custkey} = ${f_lineitems.l_custkey} ;;
   }
-  join: d_dates {
+  join: order_dates {
+    from: d_dates
     type: left_outer
     relationship: many_to_one
-    sql_on: ${d_dates.datekey} = ${f_lineitems.l_orderdatekey} ;;
+    sql_on: ${order_dates.datekey} = ${f_lineitems.l_orderdatekey} ;;
+  }
+  join: receipt_dates {
+    from: d_dates
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${receipt_dates.datekey} = ${f_lineitems.l_receiptdatekey} ;;
   }
   join: d_part {
     type: left_outer

@@ -31,6 +31,7 @@ view: d_supplier {
     sql: ${TABLE}."S_SUPPKEY" ;;
   }
   dimension: c_account_balance_cohort {
+    description: "distribution of suppliers by their account balance"
     type: string
     sql:
     CASE

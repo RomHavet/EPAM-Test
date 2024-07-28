@@ -137,6 +137,14 @@ measure: total_russia_sales {
   filters: [d_customer.c_nation: "RUSSIA"]
   value_format_name: usd
 }
+  measure: total_gross_revenue {
+    type: sum
+    sql: ${l_totalprice} ;;
+    filters: {
+      field: receipt_dates.date_val_date
+      value: "before today"
+    }
 
+  }
 
 }
