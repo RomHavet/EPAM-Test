@@ -122,7 +122,7 @@ view: f_lineitems {
     sql: ${l_quantity};;
   }
 
-measure: total_sale_price_shipped_by_air {
+  measure: total_sale_price_shipped_by_air {
   description: "Total sales of items shipped by air"
   type: sum
   sql: ${l_totalprice};;
