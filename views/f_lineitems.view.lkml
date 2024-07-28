@@ -150,5 +150,10 @@ measure: total_cost {
   sql: ${l_supplycost} ;;
   value_format_name: usd
 }
-
+measure: total_gross_margin_amount {
+  description: "Total Gross Revenue – Total Cost"
+  type: number
+  sql: ${total_gross_revenue} - ${total_cost} ;;
+  value_format_name: usd
+}
 }
