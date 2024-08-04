@@ -165,18 +165,18 @@ view: f_lineitems {
     type: number
     sql: ${total_gross_revenue} - ${total_cost} ;;
     value_format_name: usd
-    drill_fields: [ supplier_details.d_supplier.s_region,
-      supplier_details.d_supplier.c_account_balance_cohort,
-      supplier_details.total_gross_margin_amount]
+    drill_fields: [ d_supplier.s_region,
+                    d_supplier.c_account_balance_cohort,
+                    total_gross_margin_amount]
   }
   measure: gross_margin_percentage {
     label: "Gross Margin Percentage"
     description: "Total Gross Margin Amount / Total Gross Revenue"
     sql: ${total_gross_margin_amount} / NULLIF(${total_gross_revenue},0) ;;
     value_format_name: percent_2
-    drill_fields: [ supplier_details.d_part.brand,
-      supplier_details.d_part.name,
-      supplier_details.d_part.count]
+    drill_fields: [ d_part.brand,
+                    d_part.name,
+                    d_part.count]
   }
   measure: total_items_returned {
     label: "Number of Items Returned"
@@ -205,17 +205,17 @@ view: f_lineitems {
     value_format_name: usd
   }
   set: supplier_details {
-    fields: [d_part.brand,
-      d_part.name,
-      d_part.count,
-      d_supplier.s_region,
-      d_supplier.c_account_balance_cohort,
-      total_gross_margin_amount]
+    fields: [ d_part.brand,
+              d_part.name,
+              d_part.count,
+              d_supplier.s_region,
+              d_supplier.c_account_balance_cohort,
+              total_gross_margin_amount]
   }
   set: revenue_details {
-    fields: [d_customer.c_nation,
-      d_dates.set*,
-      total_gross_revenue]
+    fields: [ d_customer.c_nation,
+              d_dates.set*,
+              total_gross_revenue]
 
   }
 }
