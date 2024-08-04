@@ -150,7 +150,7 @@ measure: total_russia_sales {
     sql: ${l_totalprice} ;;
     filters: [l_orderstatus: "F"]
     value_format_name: usd
-    drill_fields: [supplier_details*]
+    drill_fields: [revenue_details*]
     }
 measure: total_cost {
   label: "Total Cost"
@@ -165,7 +165,7 @@ measure: total_gross_margin_amount {
   type: number
   sql: ${total_gross_revenue} - ${total_cost} ;;
   value_format_name: usd
-  drill_fields: [revenue_details*]
+  drill_fields: [supplier_details*]
 }
   measure: gross_margin_percentage {
     label: "Gross Margin Percentage"
