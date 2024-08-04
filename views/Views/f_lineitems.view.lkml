@@ -200,8 +200,8 @@ measure: total_gross_margin_amount {
     value_format_name: usd
   }
   set: supplier_details {
-    fields: [d_supplier.c_account_balance_cohort,
-              d_supplier.s_nation]
+    fields: [d_supplier.s_nation,
+            d_supplier.c_account_balance_cohort]
   }
   set: revenue_details {
     fields: [d_customer.c_nation,
