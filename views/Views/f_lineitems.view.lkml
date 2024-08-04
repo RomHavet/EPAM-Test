@@ -174,9 +174,9 @@ view: f_lineitems {
     description: "Total Gross Margin Amount / Total Gross Revenue"
     sql: ${total_gross_margin_amount} / NULLIF(${total_gross_revenue},0) ;;
     value_format_name: percent_2
-    drill_fields: [ d_part.brand,
-                    d_part.name,
-                    l_totalprice]
+    drill_fields: [ d_part.Brand,
+                    d_part.Name,
+                    total_gross_revenue]
   }
   measure: total_items_returned {
     label: "Number of Items Returned"
