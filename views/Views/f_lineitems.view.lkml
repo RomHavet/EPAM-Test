@@ -176,7 +176,7 @@ view: f_lineitems {
     value_format_name: percent_2
     drill_fields: [ d_part.brand,
                     d_part.name,
-                    total_gross_margin_amount]
+                    l_totalprice]
   }
   measure: total_items_returned {
     label: "Number of Items Returned"
