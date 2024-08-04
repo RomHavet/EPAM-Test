@@ -197,4 +197,13 @@ measure: total_gross_margin_amount {
     sql: ${total_sale_price} / NULLIF(${total_customers_count},0) ;;
     value_format_name: usd
   }
+  set: supplier_details {
+    fields: [d_supplier.c_account_balance_cohort,
+              d_supplier.s_nation]
+  }
+  set: revenue_details {
+    fields: [d_customer.c_nation,
+            d_dates.set*]
+
+  }
 }
