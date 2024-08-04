@@ -128,21 +128,21 @@ view: f_lineitems {
 
   measure: total_sale_price_shipped_by_air {
     label: "Total Sales Shipped by Air"
-  description: "Total sales of items shipped by air"
-  type: sum
-  sql: ${l_totalprice};;
-  filters: [l_shipmode: "AIR"
-  ]
-  value_format_name: usd
-}
-measure: total_russia_sales {
-  label: "Total Sales to Russia"
-  description: "Total sales by customers from Russia"
-  type: sum
-  sql: ${l_totalprice} ;;
-  filters: [d_customer.c_nation: "RUSSIA"]
-  value_format_name: usd
-}
+    description: "Total sales of items shipped by air"
+    type: sum
+    sql: ${l_totalprice};;
+    filters: [l_shipmode: "AIR"
+    ]
+    value_format_name: usd
+  }
+  measure: total_russia_sales {
+    label: "Total Sales to Russia"
+    description: "Total sales by customers from Russia"
+    type: sum
+    sql: ${l_totalprice} ;;
+    filters: [d_customer.c_nation: "RUSSIA"]
+    value_format_name: usd
+  }
   measure: total_gross_revenue {
     label: "Total Gross Revenue"
     description: "Total sales whith order status F (completed)"
@@ -151,27 +151,32 @@ measure: total_russia_sales {
     filters: [l_orderstatus: "F"]
     value_format_name: usd
     drill_fields: [revenue_details*]
-    }
-measure: total_cost {
-  label: "Total Cost"
-  description: "Total supply cost"
-  type: sum
-  sql: ${l_supplycost} ;;
-  value_format_name: usd
-}
-measure: total_gross_margin_amount {
-  label: "Total Gross Margin"
-  description: "Total Gross Revenue – Total Cost"
-  type: number
-  sql: ${total_gross_revenue} - ${total_cost} ;;
-  value_format_name: usd
-  drill_fields: [supplier_details*]
-}
+  }
+  measure: total_cost {
+    label: "Total Cost"
+    description: "Total supply cost"
+    type: sum
+    sql: ${l_supplycost} ;;
+    value_format_name: usd
+  }
+  measure: total_gross_margin_amount {
+    label: "Total Gross Margin"
+    description: "Total Gross Revenue – Total Cost"
+    type: number
+    sql: ${total_gross_revenue} - ${total_cost} ;;
+    value_format_name: usd
+    drill_fields: [ supplier_details.d_supplier.s_region,
+      supplier_details.d_supplier.c_account_balance_cohort,
+      supplier_details.total_gross_margin_amount]
+  }
   measure: gross_margin_percentage {
     label: "Gross Margin Percentage"
     description: "Total Gross Margin Amount / Total Gross Revenue"
     sql: ${total_gross_margin_amount} / NULLIF(${total_gross_revenue},0) ;;
     value_format_name: percent_2
+    drill_fields: [ supplier_details.d_part.brand,
+      supplier_details.d_part.name,
+      supplier_details.d_part.count]
   }
   measure: total_items_returned {
     label: "Number of Items Returned"
@@ -201,16 +206,16 @@ measure: total_gross_margin_amount {
   }
   set: supplier_details {
     fields: [d_part.brand,
-             d_part.name,
-             d_part.count,
-             d_supplier.s_region,
-             d_supplier.c_account_balance_cohort,
-             total_gross_margin_amount]
+      d_part.name,
+      d_part.count,
+      d_supplier.s_region,
+      d_supplier.c_account_balance_cohort,
+      total_gross_margin_amount]
   }
   set: revenue_details {
     fields: [d_customer.c_nation,
-            d_dates.set*,
-            total_gross_revenue]
+      d_dates.set*,
+      total_gross_revenue]
 
   }
 }
