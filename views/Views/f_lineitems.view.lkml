@@ -214,6 +214,6 @@ view: f_lineitems {
   set: item_details {
     fields: [ d_part.Brand,
               d_part.Name,
-              total_gross_margin_amount]
+              l_totalprice]
   }
 }
