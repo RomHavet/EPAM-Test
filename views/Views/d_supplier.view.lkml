@@ -15,8 +15,9 @@ view: d_supplier {
       icon_url: "http://google.com/favicon.ico"
     }
     type: string
-    sql: ${TABLE}."S_NAME" ;;
+    sql: ${TABLE}."S_NAME";
   }
+
   dimension: s_nation {
     type: string
     sql: ${TABLE}."S_NATION" ;;
