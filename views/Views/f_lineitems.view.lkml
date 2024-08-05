@@ -212,8 +212,8 @@ view: f_lineitems {
 
   }
   set: item_details {
-    fields: [ d_part.Brand,
-              d_part.Name,
+    fields: [ d_part.p_brand,
+              d_part.p_name,
               l_totalprice]
   }
 }
