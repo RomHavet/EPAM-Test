@@ -11,8 +11,8 @@ view: d_supplier {
   }
   dimension: s_name {
     link: {
+      label: "Google Search"
       url: "http://www.google.com/search?q={{ value | url_encode }}"
-      icon_url: "http://google.com/favicon.ico"
     }
     type: string
     sql: ${TABLE}."S_NAME";;
