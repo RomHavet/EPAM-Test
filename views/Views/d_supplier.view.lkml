@@ -43,6 +43,7 @@ view: d_supplier {
     END ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: [s_name]

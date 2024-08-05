@@ -15,6 +15,10 @@ view: d_customer {
     sql: ${TABLE}."C_MKTSEGMENT" ;;
   }
   dimension: c_name {
+    link: {
+      url: "http://www.google.com/search?q={{ value | url_encode }}"
+      icon_url: "http://google.com/favicon.ico"
+    }
     type: string
     sql: ${TABLE}."C_NAME" ;;
   }
