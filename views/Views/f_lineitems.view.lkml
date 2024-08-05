@@ -165,18 +165,14 @@ view: f_lineitems {
     type: number
     sql: ${total_gross_revenue} - ${total_cost} ;;
     value_format_name: usd
-    drill_fields: [ d_supplier.s_region,
-                    d_supplier.c_account_balance_cohort,
-                    total_gross_margin_amount]
+    drill_fields: [ supplier_details*]
   }
   measure: gross_margin_percentage {
     label: "Gross Margin Percentage"
     description: "Total Gross Margin Amount / Total Gross Revenue"
     sql: ${total_gross_margin_amount} / NULLIF(${total_gross_revenue},0) ;;
     value_format_name: percent_2
-    drill_fields: [ d_part.Brand,
-                    d_part.Name,
-                    total_gross_revenue]
+    drill_fields: [item_details*]
   }
   measure: total_items_returned {
     label: "Number of Items Returned"
@@ -205,10 +201,7 @@ view: f_lineitems {
     value_format_name: usd
   }
   set: supplier_details {
-    fields: [ d_part.brand,
-              d_part.name,
-              d_part.count,
-              d_supplier.s_region,
+    fields: [ d_supplier.s_region,
               d_supplier.c_account_balance_cohort,
               total_gross_margin_amount]
   }
@@ -217,5 +210,10 @@ view: f_lineitems {
               d_dates.set*,
               total_gross_revenue]
 
+  }
+  set: item_details {
+    fields: [ d_part.Brand,
+              d_part.Name,
+              total_gross_margin_amount]
   }
 }
