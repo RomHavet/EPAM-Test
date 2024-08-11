@@ -25,8 +25,10 @@ view: d_customer {
   dimension: c_nation {
     label: "Customer Nation"
     type: string
-    sql: ${TABLE}."C_NATION"
+    sql: ${TABLE}."C_NATION";;
   }
+
+
   dimension: c_phone {
     type: string
     sql: ${TABLE}."C_PHONE" ;;
