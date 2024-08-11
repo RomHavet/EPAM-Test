@@ -25,7 +25,7 @@ view: d_customer {
   dimension: c_nation {
     label: "Customer Nation"
     type: string
-    sql: ${TABLE}."C_NATION" ;;
+    sql: ${TABLE}."C_NATION"
   }
   dimension: c_phone {
     type: string
@@ -40,14 +40,5 @@ view: d_customer {
     type: count
     drill_fields: [c_name]
   }
-  filter: customer_region {
-    label: "Customer Region"
-    type: string
-    }
-  filter: customer_nation {
-    type: string
-    label: "Customer Nation"
-    sql: SELECT DISTINCT C_NATION FROM D_CUSTOMER WHERE C_REGION = {% condition customer_region %} {% endcondition %} ;;
-    }
 
 }
