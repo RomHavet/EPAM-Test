@@ -72,9 +72,9 @@ view: d_dates {
  dimension: target_chart_name {
     label_from_parameter: granularity
     type: string
-    sql: {% if ${granularity}._parameter_value=="Month" %} 'Monthly'
-         {% elsif ${granularity}._parameter_value=="Quarter" %} 'Quarterly'
-         {% elsif ${granularity}._parameter_value=="Year" %} 'Yearly'
+    sql: {% if granularity._parameter_value=="Month" %} 'Monthly'
+         {% elsif granularity._parameter_value=="Quarter" %} 'Quarterly'
+         {% elsif granularity._parameter_value=="Year" %} 'Yearly'
          {% endif %};;
   }
 }
