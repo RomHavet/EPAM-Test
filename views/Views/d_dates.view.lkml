@@ -66,7 +66,7 @@ view: d_dates {
   dimension: Dynamic_date_filter {
     type: number
     label_from_parameter: granularity
-    sql: {% parameter my_filter %} ${date} ;;
+    sql: {% parameter ${granularity} %} ${date} ;;
   }
 
  dimension: target_chart_name {
