@@ -23,6 +23,7 @@ view: d_customer {
     sql: ${TABLE}."C_NAME" ;;
   }
   dimension: c_nation {
+    label: "Customer Nation"
     type: string
     sql: ${TABLE}."C_NATION" ;;
   }
@@ -31,6 +32,7 @@ view: d_customer {
     sql: ${TABLE}."C_PHONE" ;;
   }
   dimension: c_region {
+    label: "Customer Region"
     type: string
     sql: ${TABLE}."C_REGION" ;;
   }
