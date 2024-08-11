@@ -41,4 +41,40 @@ view: d_dates {
     type: count
     drill_fields: [month_name]
   }
+
+  parameter:granularity {
+    type: unquoted
+    allowed_value: {
+      value: "Month"
+      label: "Month"
+    }
+    allowed_value:
+    {value: "Quarter"
+      label: "Quarter"
+    }
+    allowed_value:
+    {value: "Year"
+      label: "Year"
+    }
+  }
+
+  dimension: date {
+    datatype: date
+    sql: ${TABLE}."DATE_VAL" ;;
+  }
+
+  dimension: Dynamic_date_filter {
+    type: number
+    label_from_parameter: granularity
+    sql: {% parameter my_filter %} ${date} ;;
+  }
+
+ dimension: target_chart_name {
+    label_from_parameter: granularity
+    type: string
+    sql: {% if ${granularity}._parameter_value=="Month" %} 'Monthly'
+         {% elsif ${granularity}._parameter_value=="Quarter" %} 'Quarterly'
+         {% elsif ${granularity}._parameter_value=="Year" %} 'Yearly'
+         {% endif %};;
+  }
 }
