@@ -30,7 +30,7 @@ view: d_customer {
   dimension: filtered_url {
     type: string
     link: {
-      url: "https://epam.cloud.looker.com/dashboards/305?Customer+Region={{_filters['customer_region1'] | url_encoded}}"
+      url: "https://epam.cloud.looker.com/dashboards/305?&f[c_region]={{_filters['customer_region1'] | url_encoded}}"
       icon_url: "http://google.com/favicon.ico"
     }
   }
