@@ -27,7 +27,7 @@ view: d_customer {
     type: string
     sql: ${TABLE}."C_NATION";;
   }
-  dimension: filtered_url {
+  dimension: button {
     type: string
     link: {
       url: "/dashboards/305?&f[${c_region}]=_filters['${customer_region1}']"
