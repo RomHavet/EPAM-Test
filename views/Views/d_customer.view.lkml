@@ -27,7 +27,13 @@ view: d_customer {
     type: string
     sql: ${TABLE}."C_NATION";;
   }
-
+  dimension: filtered_url {
+    type: string
+    link: {
+      url: "https://epam.cloud.looker.com/dashboards/305?Customer+Region={{_filters['customer_region1'] | url_encoded}}"
+      icon_url: "http://google.com/favicon.ico"
+    }
+  }
 
   dimension: c_phone {
     type: string
@@ -45,7 +51,7 @@ view: d_customer {
   filter: customer_region1 {
     type: string
     suggest_dimension: c_region
-  }
+   }
 
 
 }
