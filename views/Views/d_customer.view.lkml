@@ -31,7 +31,7 @@ view: d_customer {
     type: string
     sql: '' ;;
     html: <p style="font-size: 20px"><a href='https://epam.cloud.looker.com/dashboards/305?Customer+Region={{ _filters['d_customer.customer_region1']}}'>
-      <span style='border:1px solid rgb(0, 53, 149); border-radius: 5px; background: rgba(0, 53, 149); color: rgb(255,255,255); padding: 3px; '>Summary Target</span></a></p> ;;
+      <span style='background: rgba(39, 234, 245, 0.8); color: rgb(255,255,255); padding: 5px; '>Summary Target Dashboard</span></a></p> ;;
   }
 
   dimension: c_phone {
