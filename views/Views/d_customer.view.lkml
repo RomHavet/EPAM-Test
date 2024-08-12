@@ -28,9 +28,8 @@ view: d_customer {
     sql: ${TABLE}."C_NATION";;
   }
   dimension: filtered_url {
-    type: string
     link: {
-      url: "https://epam.cloud.looker.com/dashboards/305?&f[c_region]={{_filters['customer_region1'] | url_encoded}}"
+      url: "/dashboards/305?&f[${c_region}]=_filters['${customer_region1}']"
       icon_url: "http://google.com/favicon.ico"
     }
   }
