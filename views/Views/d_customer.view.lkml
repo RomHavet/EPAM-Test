@@ -42,7 +42,7 @@ view: d_customer {
     type: count
     drill_fields: [c_name]
   }
-  filter: customer_region {
+  filter: customer_region1 {
     type: string
     suggest_dimension: c_region
   }
