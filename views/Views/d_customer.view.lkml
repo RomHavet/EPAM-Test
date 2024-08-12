@@ -29,7 +29,7 @@ view: d_customer {
   }
   dimension: button {
     type: string
-    sql: null ;;
+    sql: select "link" ;;
     link: {
       url: "/dashboards/305?&f[c_region]=_filters['customer_region1']"
       icon_url: "http://google.com/favicon.ico"
