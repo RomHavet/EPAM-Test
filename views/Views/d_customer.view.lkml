@@ -27,13 +27,11 @@ view: d_customer {
     type: string
     sql: ${TABLE}."C_NATION";;
   }
-  dimension: button {
+  dimension: filtered_url {
     type: string
-    sql: 'link' ;;
-    link: {
-      url: "/dashboards/305?&f[c_region]=_filters['customer_region1']"
-      icon_url: "http://google.com/favicon.ico"
-    }
+    sql: '' ;;
+    html: <p style="font-size: 20px"><a href='https://epam.cloud.looker.com/dashboards/305?Customer+Region={{ _filters['d_customer.customer_region1']}}'>
+      <span style='border:1px solid rgb(0, 53, 149); border-radius: 5px; background: rgba(0, 53, 149); color: rgb(255,255,255); padding: 3px; '>Summary Target</span></a></p> ;;
   }
 
   dimension: c_phone {
