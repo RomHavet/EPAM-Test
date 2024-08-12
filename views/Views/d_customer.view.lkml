@@ -42,5 +42,8 @@ view: d_customer {
     type: count
     drill_fields: [c_name]
   }
+  parameter: customer_region {
+    type: string
 
+  }
 }
