@@ -10,6 +10,8 @@ datagroup: raman_havetski_looker_intensive_13_default_datagroup {
 
 persist_with: raman_havetski_looker_intensive_13_default_datagroup
 
+explore: order_items {}
+
 explore: d_customer {}
 
 explore: d_dates {}
