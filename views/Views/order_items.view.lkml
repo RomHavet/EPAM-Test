@@ -167,6 +167,13 @@ view: order_items {
     value_format_name: percent_2
     drill_fields: [item_details*]
   }
+  measure: total_items_sold {
+    label: "Number of Items Sold"
+    description: "Number of items that were sold"
+    type:  sum
+    sql: ${l_quantity} ;;
+
+  }
   measure: total_items_returned {
     label: "Number of Items Returned"
     description: "Number of items that were returned by dissatisfied customers"
