@@ -5,6 +5,7 @@ include: "/views/**/*.view.lkml"
 
 datagroup: raman_havetski_looker_intensive_13_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  interval_trigger: "36 hours"
   max_cache_age: "1 hour"
 }
 

@@ -25,7 +25,7 @@ view: order_items {
             "L_TAX" AS l_tax,
             "L_TOTALPRICE" AS l_totalprice
           FROM "DATA_MART"."F_LINEITEMS" ;;
-    persist_for: "168 hour"
+    datagroup_trigger: raman_havetski_looker_intensive_13_default_datagroup
   }
 
   dimension: l_availqty {
