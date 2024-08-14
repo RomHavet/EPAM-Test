@@ -25,7 +25,7 @@ view: order_items {
             "L_TAX" AS l_tax,
             "L_TOTALPRICE" AS l_totalprice
           FROM "DATA_MART"."F_LINEITEMS" ;;
-    persist_for: "24 hours"
+    persist_for: "168 hour"
   }
 
   dimension: l_availqty {
