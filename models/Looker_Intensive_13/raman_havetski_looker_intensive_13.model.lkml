@@ -11,7 +11,17 @@ datagroup: raman_havetski_looker_intensive_13_default_datagroup {
 
 persist_with: raman_havetski_looker_intensive_13_default_datagroup
 
-explore: order_items {}
+explore: order_items {
+  aggregate_table: orders_sold_returned {
+    materialization: {
+      datagroup_trigger: raman_havetski_looker_intensive_13_default_datagroup
+      }
+    query: {
+      dimensions: [order_items.l_orderkey]
+      measures: [order_items.total_items_sold, order_items.total_items_returned]
+    }
+  }
+}
 
 explore: d_customer {}
 
